@@ -22,10 +22,12 @@ export default class People extends React.Component {
   }
 
   render() {
-
+    const { navigation } = this.props
     return (
       <View>
-        <PeopleList people={this.state.people}/>
+        <PeopleList
+          people={this.state.people}
+          onPressItem={pageParams => navigation.navigate('PersonDetail', pageParams)} />
       </View>
     )
   }

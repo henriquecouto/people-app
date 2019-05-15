@@ -4,9 +4,14 @@ import { View, Text, StyleSheet } from 'react-native'
 import PeopleListItem from './PeopleListItem'
 
 const PeopleList = props => {
-  const { people } = props
+  const { people, onPressItem } = props
 
-  const items = people.map((person, i) => <PeopleListItem person={person} key={i} />)
+  const items = people.map((person, i) =>
+    <PeopleListItem
+      person={person}
+      key={i}
+      navegateToPersonDetail={onPressItem}
+    />)
 
   return (
     <View style={styles.container}>
@@ -17,7 +22,7 @@ const PeopleList = props => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#e2f9ff'
+    backgroundColor: '#DF917D44'
   },
 })
 
