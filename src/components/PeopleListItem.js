@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 import { capitalizeFirstLetter } from '../utils'
 
@@ -8,21 +8,23 @@ const PeopleListItem = props => {
   const { title, first, last } = person.name
   const { thumbnail } = person.picture
   return (
-    <View style={styles.container}>
-      <Image
-        source={{ uri: thumbnail }}
-        style={styles.avatar}
-      />
-      <Text style={styles.text}>
-        {`${
-          capitalizeFirstLetter(title)
-          } ${
-          capitalizeFirstLetter(first)
-          } ${
-          capitalizeFirstLetter(last)
-          }`}
-      </Text>
-    </View>
+    <TouchableOpacity onPress={() => console.log('clicou em: ', first)} >
+      <View style={styles.container}>
+        <Image
+          source={{ uri: thumbnail }}
+          style={styles.avatar}
+        />
+        <Text style={styles.text}>
+          {`${
+            capitalizeFirstLetter(title)
+            } ${
+            capitalizeFirstLetter(first)
+            } ${
+            capitalizeFirstLetter(last)
+            }`}
+        </Text>
+      </View>
+    </TouchableOpacity>
   )
 }
 
